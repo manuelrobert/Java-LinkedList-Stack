@@ -7,10 +7,10 @@ class LinkedList {
     Node head;
 
     public void insert(int data) {
+        System.out.println("Linked List Insertion at end " + data);
         Node n = new Node();
         n.data = data;
         n.next = null;
-
         if (head == null) {
             head = n;
         } else {
@@ -23,13 +23,16 @@ class LinkedList {
     }
 
     public void insertAt(int index, int data) {
+        System.out.println("Linked List Insertion " + data);
         Node n = new Node();
         n.data = data;
         n.next = null;
         if (index == 0) {
+            // insertion at beginning
             n.next = head;
             head = n;
         } else {
+            // insertion at a specified posistion
             Node node = head;
             for (int i = 0; i < index - 1; i++) {
                 node = node.next;
@@ -41,14 +44,17 @@ class LinkedList {
 
     public void deleteAt(int index) {
         if (index == 0) {
+            // deletion at beginning
             head = head.next;
         } else {
+            // deletion at a specified posistion
             Node node = head;
             for (int i = 0; i < index - 1; i++) {
                 node = node.next;
             }
             Node t = node.next;
             node.next = t.next;
+            System.out.println("Linked List Deletion " + t.data);
             t = null;
         }
     }
@@ -57,6 +63,7 @@ class LinkedList {
         if (head == null) {
             System.out.println("Linked List empty");
         } else {
+            System.out.println("Linked List Traversal");
             Node node = head;
             while (node.next != null) {
                 System.out.println(node.data);
